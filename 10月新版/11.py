@@ -69,10 +69,7 @@ def load_file_with_twolist(file_name):
                 elif is_num(a[i]) == 1:
                     if math.modf(a[i])[0] == 0 or a[i] == 0:
                         a[i] = int(a[i])
-                try:
-                    a[i] = int(a[i])
-                except:
-                    pass
+
                 mid.append(a[i])
             file_list.append(mid)
     return file_list
@@ -496,17 +493,12 @@ def specaldel_with_lastprocess(dictmesg_with_name, smulu, money):
                         elif u'个' in y[7] or u'只' in y[7]:
                             if (type(y[1]) == type(u'a') and u'-' not in y[1]) or type(y[1]) == type(1):
                                 if y[6] == money[z][1] and y[8] == money[z][3]:
-                                    if y[7] == '' and y[7] == money[z][2]:
+                                    if  y[7] == money[z][2]:
                                         jiage = money[z][4] / y[3]
                                         y[5] = jiage * y[4]
                                         flag = 1
                                         break
-                                    elif y[7] != '' and money[z][2] == u'√':
-                                        geshu = len(y[7])
-                                        jiage = ((geshu - 1) * 0.005 + money[z][4]) / y[3]
-                                        y[5] = jiage * y[4]
-                                        flag = 1
-                                        break
+
                         # 带排/数的
                         elif (type(y[1]) == type(u'a') and u'-' not in y[1] and (y[8] == u'排' or y[8] == u'数')) or (
                                 type(y[1]) == type(1) and (y[8] == u'排' or y[8] == u'数')):
@@ -537,17 +529,12 @@ def specaldel_with_lastprocess(dictmesg_with_name, smulu, money):
 
                         # 剩余的正常型号
                         elif y[6] == money[z][1] and y[8] == money[z][3]:
-                            if y[7] == '' and y[7] == money[z][2]:
+                            if  y[7] == money[z][2]:
                                 jiage = money[z][4] / y[3]
                                 y[5] = jiage * y[4]
                                 flag = 1
                                 break
-                            elif y[7] != '' and money[z][2] == u'√':
-                                geshu = len(y[7])
-                                jiage = ((geshu - 1) * 0.005 + money[z][4]) / y[3]
-                                y[5] = jiage * y[4]
-                                flag = 1
-                                break
+
     return dictmesg_with_name
 
 
